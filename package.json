@@ -1,0 +1,24 @@
+{
+  "name": "eid-project-2",
+  "version": "1.0.0",
+  "description": "## Team * Roberto Baquerizo * Zach Turner",
+  "main": "sensor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baquerrj/eid-project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baquerrj/eid-project-2/issues"
+  },
+  "homepage": "https://github.com/baquerrj/eid-project-2#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
