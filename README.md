@@ -1,14 +1,16 @@
-# Project XYZ
+# Project 2, Temperature Sensor System Simulator, 2nd Phase
 
 ## Team
-* Person 1
-* Person 2
+* Roberto Baquerizo
+* Zach Turner
+
 
 ## Project Summary
 * Fill in project summary and goals here.
 
 ## Language and Environment Description
-* Describe development environment and languages used (Python, HTML, etc.)
+* Python 3.8.5
+* Node.js
 
 
 ### Sample Output
