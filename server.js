@@ -1,4 +1,4 @@
-const { fork } = require('child_process');
+const { fork } = require('child_process')
 
 // get the arguments after "node server.js ..."
 const args = process.argv.slice(2)

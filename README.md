@@ -13,6 +13,12 @@
 * node v14.15.4 (npm v6.14.10)
 * MySQL ver 14.14 distrib 5.7.32
 
+### Node packages
+These are the packages used by our project and specified by the `package.json` file in the Node project.
+* mysql
+* @types/mysql
+* nodemon
+  
 ### Installing Node.js
 
 * substitute NODE_VERSION for 14.15.4
@@ -60,6 +66,18 @@ sudo /etc/init.d/mysql start
 mysql  Ver 14.14 Distrib 5.7.32, for Linux (x86_64) using  EditLine wrapper
 ```
 
+#### Setting up Sensor User 
+
+```
+$ mysql
+mysql> CREATE USER 'sensor'@'localhost' IDENTIFIED BY 'balderdash';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'sensor'@'localhost';
+mysql> FLUSH PRIVILEGES;
+mysql> quit;
+```
+
+#### Configuring Database
+
 ### Sample Output
 ```
 code
@@ -71,3 +89,5 @@ code
 
 ## Resources Referenced
 * https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/
+* https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+* https://www.sitepoint.com/using-node-mysql-javascript-client/
