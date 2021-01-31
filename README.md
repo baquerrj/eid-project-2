@@ -18,20 +18,18 @@ These are the packages used by our project and specified by the `package.json` f
 * mysql
 * @types/mysql
 * nodemon
-  
+
 ### Installing Node.js
 
-* substitute NODE_VERSION for 14.15.4
-
+1. On a new terminal, execute:
 ```
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
 ```
-
-Close and open the terminal
-
-
+2. Close and open the terminal
+3. In new terminal, execute:
 ```
-    nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default
+NODE_VERSION=14.15.4
+nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default
 ```
 
 #### Example versions
@@ -66,10 +64,10 @@ sudo /etc/init.d/mysql start
 mysql  Ver 14.14 Distrib 5.7.32, for Linux (x86_64) using  EditLine wrapper
 ```
 
-#### Setting up Sensor User 
-
+#### Setting up Sensor User
+:information_source: Replace `sensor` below with username.
 ```
-$ mysql
+$ sudo mysql
 mysql> CREATE USER 'sensor'@'localhost' IDENTIFIED BY 'balderdash';
 mysql> GRANT ALL PRIVILEGES ON * . * TO 'sensor'@'localhost';
 mysql> FLUSH PRIVILEGES;
