@@ -39,7 +39,7 @@ db_connection.connect(function(err) {
         console.log("Table deleted");
     });
 
-    var sql = "CREATE TABLE sensors (id INT AUTO_INCREMENT PRIMARY KEY, sensorId INTEGER(255), temperature REAL)";
+    var sql = "CREATE TABLE sensors (id INT AUTO_INCREMENT PRIMARY KEY, sensorId INTEGER(255), timestamp TEXT, temperature REAL, alarm_count INTEGER, error_count INTEGER)";
     db_connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Table created");
