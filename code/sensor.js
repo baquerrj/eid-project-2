@@ -44,6 +44,19 @@ setInterval(() => {
     if (random_event == 0)
     {
         // temperature spike occured
+        
+        // should be between [1,8)
+        spike = (Math.random() * 7.0) + 1.0
+
+        let spike_direction = Math.floor(Math.random() * 2)
+
+        if (spike_direction > 0)
+        temp_measurement += spike
+        else
+        temp_measurement -= spike
+        
+        if (Math.abs(temp_measurement - temp_threshold) > 5)
+            alarm_count += 1
     }
     else if(random_event == 9)
     {
@@ -52,21 +65,16 @@ setInterval(() => {
         error_count += 1
     }
 
-    var sql = "INSERT INTO sensors (sensorId, temperature) VALUES ?";
-    var values = [
-        [id, temp_measurement]
-    ];
-    db_connection.query(sql, [values], function (err, result) {
-        if (err) console.log(err);
-        console.log("Number of records insert: " + result.affectedRows);
-    })
-    process.send({ counter: counter++, id_num: id, temp: temp_measurement });
-}, 1000);
+    var insert_into_db = "INSERT INTO sensors (sensorId, timestamp, temperature, alarm_count, error_count) VALUES ?";
+    
+    let date = (new Date()).toLocaleString("en-US")
 
-// db_connection.end((err) => {
-//     if (err) {
-//         console.log('Error closing connection to database')
-//         return
-//     }
-//     console.log('Connection closed!');
-//   });
+    var values = [
+        [id, date, temp_measurement, alarm_count, error_count]
+    ];
+    db_connection.query(insert_into_db, [values], function (err, result) {
+        if (err) console.log(err);
+        // console.log("Number of records insert: " + result.affectedRows);
+    })
+    process.send({ id_num: id, date: date,  temp: temp_measurement, alarms: alarm_count, errors: error_count });
+}, 10000);
