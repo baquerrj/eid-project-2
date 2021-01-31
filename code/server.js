@@ -2,26 +2,29 @@ const { fork } = require('child_process')
 
 var mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "sensor",
-  password: "balderdash"
+const cfg = require("./config")
+
+const db_connection = mysql.createConnection({
+    host: cfg.database.host,
+    user: cfg.database.user,
+    password:cfg.database.password,
 });
 
-con.connect(function(err) {
+db_connection.connect(function(err) {
     if (err) {
         console.log(err);
         return;
     }
     console.log("Connected!");
 
-    var sql = "CREATE DATABASE IF NOT EXISTS sensor_db";
-    con.query(sql, function (err, result) {
+    const create_db = "CREATE DATABASE IF NOT EXISTS sensor_db";
+
+    db_connection.query(create_db, function (err, result) {
         if (err) throw err;
         console.log("Database created!");
     });
 
-    con.changeUser({
+    db_connection.changeUser({
         database: 'sensor_db'
     }, (err) => {
         if (err) {
@@ -30,19 +33,19 @@ con.connect(function(err) {
         }
     });
 
-    var sql = "DROP TABLE IF EXISTS sensors";
-    con.query(sql, function (err, result) {
+    const clear_db_table = "DROP TABLE IF EXISTS sensors";
+    db_connection.query(clear_db_table, function (err, result) {
         if (err) throw err;
         console.log("Table deleted");
     });
 
-    var sql = "CREATE TABLE sensors (id INT AUTO_INCREMENT PRIMARY KEY, sensorId INTEGER(255), temperature DOUBLE(5,3))";
-    con.query(sql, function (err, result) {
+    var sql = "CREATE TABLE sensors (id INT AUTO_INCREMENT PRIMARY KEY, sensorId INTEGER(255), temperature REAL)";
+    db_connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Table created");
     });
 
-  });
+});
 
 // get the arguments after "node server.js ..."
 const args = process.argv.slice(2)

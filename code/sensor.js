@@ -1,4 +1,5 @@
-const mysql = require('mysql')
+const mysql = require('mysql');
+const { database } = require('./config');
 
 process.on('message', (msg) => {
     console.log('Message from parent:', msg)
@@ -6,14 +7,14 @@ process.on('message', (msg) => {
     temp_threshold = msg["temperature"]
   });
 
-var config = {
-   user: 'sensor',
-   host: 'localhost',
-   password: 'balderdash',
-   database: 'sensor_db'
-};
+const cfg = require("./config")
 
-const db_connection = mysql.createConnection(config);
+const db_connection = mysql.createConnection({
+    user: cfg.database.user,
+    host: cfg.database.host,
+    password:cfg.database.password,
+    database: cfg.database.database
+});
 
 db_connection.connect((err) => {
     if (err) {
@@ -48,6 +49,7 @@ setInterval(() => {
     {
         // no temperature available
         temp_measurement = 999
+        error_count += 1
     }
 
     var sql = "INSERT INTO sensors (sensorId, temperature) VALUES ?";
