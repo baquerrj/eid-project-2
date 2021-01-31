@@ -104,3 +104,4 @@ npm start <NUMBER OF SENSORS>
 * https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/
 * https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
 * https://www.sitepoint.com/using-node-mysql-javascript-client/
+* https://stackoverflow.com/questions/22348705/best-way-to-store-db-config-in-node-js-express-app

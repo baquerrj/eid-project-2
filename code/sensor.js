@@ -10,10 +10,10 @@ process.on('message', (msg) => {
 const cfg = require("./config")
 
 const db_connection = mysql.createConnection({
-    user: cfg.database.user,
-    host: cfg.database.host,
-    password:cfg.database.password,
-    database: cfg.database.database
+    user: cfg.db_config.user,
+    host: cfg.db_config.host,
+    password:cfg.db_config.password,
+    database: cfg.db_config.database
 });
 
 db_connection.connect((err) => {

@@ -5,9 +5,9 @@ var mysql = require('mysql');
 const cfg = require("./config")
 
 const db_connection = mysql.createConnection({
-    host: cfg.database.host,
-    user: cfg.database.user,
-    password:cfg.database.password,
+    host: cfg.db_config.host,
+    user: cfg.db_config.user,
+    password:cfg.db_config.password,
 });
 
 db_connection.connect(function(err) {
