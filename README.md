@@ -13,6 +13,9 @@
 * node v14.15.4 (npm v6.14.10)
 * MySQL ver 14.14 distrib 5.7.32
 
+### Python packages
+* mysql-connector-python
+
 ### Node packages
 These are the packages used by our project and specified by the `package.json` file in the Node project.
 * mysql
@@ -51,7 +54,8 @@ The latest version of MySQL is in the APT repository, which makes installing it 
 
 ```
 sudo apt update
-sudo apt install mysql-server
+sudo apt -y upgrade
+sudo apt install -y mysql-server mysql-client
 ```
 
 To start the local server, run this command:
@@ -74,13 +78,19 @@ mysql> FLUSH PRIVILEGES;
 mysql> quit;
 ```
 
-#### Configuring Database
-
-### Running Server Code
 :information_source: if executing for the first time, ensure that the required node modules are installed:
 ```
 npm install
 ```
+
+:information_source: ensure that the MySQL Connector Python package is installed before continuing:
+```
+pip install mysql-connector-python
+```
+
+#### Configuring Database
+
+### Running Server Code
 To start the sensor simulation server, execute:
 ```
 npm start <NUMBER OF SENSORS>
