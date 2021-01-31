@@ -76,9 +76,14 @@ mysql> quit;
 
 #### Configuring Database
 
-### Sample Output
+### Running Server Code
+:information_source: if executing for the first time, ensure that the required node modules are installed:
 ```
-code
+npm install
+```
+To start the sensor simulation server, execute:
+```
+npm start <NUMBER OF SENSORS>
 ```
 
 ## Program Design
