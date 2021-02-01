@@ -6,32 +6,87 @@ import json
 from time import sleep
 import numpy as np
 
-USAGE_TEXT =  "Usage: {} <NUMBER OF SENSORS>".format(__file__)
+from pathlib import Path
+import pymysql
 
-def get_sensor_filename(id):
-    return 'sensor-' + str(id) + '.json'
+codeDirectory = Path(__file__).parent.absolute()
+rootDirectory = codeDirectory.parent
+resultsDirectory = rootDirectory / 'results'
 
 def fahrenheit_to_celsius(fahrenheit):
     return (fahrenheit - 32.0) * 5/9
 
 class MasterController:
 
-    def __init__(self, numberOfSensors):
-        self.filename = 'master.json'
+    def __init__(self, numberOfSensors=4):
+        self.filename = resultsDirectory / 'master.json'
         self.numberOfSensors = numberOfSensors
+        self.sensors_db = [{}]    # empty list of dictionaries
         self.sensors = np.empty(shape=(numberOfSensors, 10))
         self.sensors[:] = np.nan
+        self.lastRecordIn = np.zeros(numberOfSensors, dtype=np.int8)
         self.max_temperature = 0.0
         self.min_temperature = 0.0
         self.mean_temperature = 0.0
+        self.currentId = 0  # last seen unique idenitifier from SQL db
+        self.errorCount = 0
+
+    def connect(self):
+        with open(codeDirectory / 'config.json', 'r') as json_file:
+            try:
+                data = json.load(json_file)
+                con = pymysql.connect(host=data['host'],
+                            user=data['user'],
+                            password=data['password'],
+                            db=data['database'],
+                            cursorclass=pymysql.cursors.DictCursor)
+                return con
+            except json.JSONDecodeError as e:
+                print("Error while parsing config.json: {}".format(e))
+            except pymysql.Error as e:
+                print("Error while connecting to databse {}: {}".format(data['database'], e))
+        return None
 
     def get_filename(self):
         return self.filename
 
+    def filter_db(self):
+        # https://stackoverflow.com/questions/29051573/python-filter-list-of-dictionaries-based-on-key-value/29051598
+        # Filter db on sensor id
+        for i in range(self.numberOfSensors):
+            measurements = [d for d in self.sensors_db if d['sensorId'] == i]
+            n = len(measurements)
+            validRecords = 0
+            for j in range(10):
+                try:
+                    if measurements[(n-1)- j]['temperature'] != 999:
+                        self.sensors[i][j] = float(measurements[(n-1)- j]['temperature'])
+                        validRecords += 1
+                    # else:
+                    #     self.errorCount += 1
+                except IndexError:
+                    # Not enough elements for 10 yet
+                    break
+
+            t = np.asarray(self.sensors[i], dtype=np.float64)
+            if validRecords > 0:
+                self.mean_temperature = np.nanmean(t)
+                self.max_temperature = np.nanmax(t)
+                self.min_temperature = np.nanmin(t)
+
+            new_entry = self.update_records(measurements)
+
+            # Format display information and print it
+            string = ''
+            for key in new_entry.keys():
+                string = "{}{}:{}. ".format(string, key, new_entry[key])
+
+            print(string)
+
     def update_records(self, measurements):
         new_entry = {'measurements': []}
         new_entry['measurements'].append({
-            'Sensor Number': measurements[-1]['Sensor Number'],
+            'Sensor Number': measurements[-1]['sensorId'],
             'Timestamp' : str(datetime.datetime.now()),
             'Max Temperature F'  : self.max_temperature,
             'Min Temperature F'  : self.min_temperature,
@@ -39,8 +94,8 @@ class MasterController:
             'Max Temperature C'  : fahrenheit_to_celsius(self.max_temperature),
             'Min Temperature C'  : fahrenheit_to_celsius(self.min_temperature),
             'Mean Temperature C' : fahrenheit_to_celsius(self.mean_temperature),
-            'Alarm Count' : measurements[-1]['Alarm Count'],
-            'Error Count' : measurements[-1]['Error Count']
+            'Alarm Count' : measurements[-1]['alarm_count'],
+            'Error Count' : measurements[-1]['error_count']
         })
 
         if os.path.exists(self.filename):
@@ -64,59 +119,30 @@ class MasterController:
         return new_entry['measurements'][0]
 
     def poll_sensors(self):
-        i = 0
-        while i < self.numberOfSensors:
-            # Read throuugh all the sensor log files starting with 0
-            print("Reading from {}".format(get_sensor_filename(i)))
-            try:
-                with open(get_sensor_filename(i), 'r') as json_file:
-                    data = json.load(json_file)
-                    measurements = data['measurements']
-                    n = len(measurements)
-                    error_count = 0
-                    for j in range(10):
-                        # Try to get 10 measurements
-                        try:
-                            self.sensors[i][j] = float(measurements[(n-1) - j]['Temperature'])
-                        except ValueError:
-                            # Invalid entry, i.e. N/A
-                            error_count += 1
-                            pass
-                        except IndexError:
-                            # Not enough elements for 10 yet
-                            break
+        try:
+            con = self.connect()
+            with con.cursor() as cur:
+                cur.execute('SELECT * FROM sensor_db.sensors')
+                self.sensors_db = cur.fetchall()
+        except Exception as e:
+            self.errorCount += 1
+            print("ERROR[{}]: {}".format(self.errorCount, e))
+        finally:
+            con.close()
 
-                    t = np.asarray(self.sensors[i], dtype=np.float64)
-                    self.mean_temperature = np.nanmean(t)
-                    self.max_temperature = np.nanmax(t)
-                    self.min_temperature = np.nanmin(t)
-
-                    new_entry = self.update_records(measurements)
-
-                # Format display information and print it
-                string = ''
-                for key in new_entry.keys():
-                    string = "{}{}:{}. ".format(string, key, new_entry[key])
-
-                print(string)
-
-            except Exception as e:
-                print(e)
-            i += 1
 
     def run(self):
         while True:
+            print("Checking database...")
             self.poll_sensors()
+            if len(self.sensors_db) > 0:
+                self.filter_db()
+            else:
+                print("No data yet...")
             sleep(30)
 
 def main():
-    num_arguments = len(sys.argv) - 1    # first argument is the file name (master_controller.py)
-    if num_arguments != 1:
-        print("Invalid number of arguments passed to master controller. Expected 1 and received {}".format(num_arguments))
-        print(USAGE_TEXT)
-        return 1
-
-    master = MasterController(int(sys.argv[1]))
+    master = MasterController()
 
     try:
         master.run()
@@ -128,9 +154,6 @@ def main():
 
 if __name__ == '__main__':
     try:
-        if "-h" == sys.argv[1] or "--help" == sys.argv[1]:
-            print(USAGE_TEXT)
-        else:
-            main()
-    except IndexError:
-        print(USAGE_TEXT)
+        main()
+    except Exception as e:
+        print("Error while running: {}".format(e))
