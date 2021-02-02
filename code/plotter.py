@@ -20,8 +20,9 @@ def plot(sensor_db, sensors):
         for i in range(len(times)):
             times[i] = datetime.timestamp(
                 datetime.strptime(times[i], '%m/%d/%Y, %I:%M:%S %p'))
-
-        ax.plot(times, temperatures_masked, '*--',
+        t = np.array(times)
+        t = t[:] - t[0]
+        ax.plot(t, temperatures_masked, '*--',
                 markersize=3, label='sensor-{}'.format(sensor), linewidth=1.5)
     plt.xlabel('Runtime (seconds)')
     plt.ylabel('Temperature (Fahrenheit)')
