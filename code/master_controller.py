@@ -13,6 +13,10 @@ codeDirectory = Path(__file__).parent.absolute()
 rootDirectory = codeDirectory.parent
 resultsDirectory = rootDirectory / 'results'
 
+sys.path.append(codeDirectory)
+
+from plotter import plot
+
 def fahrenheit_to_celsius(fahrenheit):
     return (fahrenheit - 32.0) * 5/9
 
@@ -21,7 +25,7 @@ class MasterController:
     def __init__(self, numberOfSensors=4):
         self.filename = resultsDirectory / 'master.json'
         self.numberOfSensors = numberOfSensors
-        self.sensors_db = [{}]    # empty list of dictionaries
+        self.sensor_db = [{}]    # empty list of dictionaries
         self.sensors = np.empty(shape=(numberOfSensors, 10))
         self.sensors[:] = np.nan
         self.lastRecordIn = np.zeros(numberOfSensors, dtype=np.int8)
@@ -54,7 +58,7 @@ class MasterController:
         # https://stackoverflow.com/questions/29051573/python-filter-list-of-dictionaries-based-on-key-value/29051598
         # Filter db on sensor id
         for i in range(self.numberOfSensors):
-            measurements = [d for d in self.sensors_db if d['sensorId'] == i]
+            measurements = [d for d in self.sensor_db if d['sensorId'] == i]
             n = len(measurements)
             validRecords = 0
             for j in range(10):
@@ -123,7 +127,7 @@ class MasterController:
             con = self.connect()
             with con.cursor() as cur:
                 cur.execute('SELECT * FROM sensor_db.sensors')
-                self.sensors_db = cur.fetchall()
+                self.sensor_db = cur.fetchall()
         except Exception as e:
             self.errorCount += 1
             print("ERROR[{}]: {}".format(self.errorCount, e))
@@ -135,7 +139,7 @@ class MasterController:
         while True:
             print("Checking database...")
             self.poll_sensors()
-            if len(self.sensors_db) > 0:
+            if len(self.sensor_db) > 0:
                 self.filter_db()
             else:
                 print("No data yet...")
@@ -147,10 +151,13 @@ def main():
     try:
         master.run()
     except KeyboardInterrupt:
-        print("Sensor data saved to {}".format(master.get_filename()))
+        print("Log file saved to: {}".format(master.get_filename()))
+        print("Plotting temperature measurements")
+        plot(master.sensor_db, master.numberOfSensors)
     except Exception as e:
         print("Encountered exception: {}!".format(str(e)))
 
+    print("Exiting... Total error count: {}".format(master.errorCount))
 
 if __name__ == '__main__':
     try:
