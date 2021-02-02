@@ -28,11 +28,9 @@ class MasterController:
         self.sensor_db = [{}]    # empty list of dictionaries
         self.sensors = np.empty(shape=(numberOfSensors, 10))
         self.sensors[:] = np.nan
-        self.lastRecordIn = np.zeros(numberOfSensors, dtype=np.int8)
         self.max_temperature = 0.0
         self.min_temperature = 0.0
         self.mean_temperature = 0.0
-        self.currentId = 0  # last seen unique idenitifier from SQL db
         self.errorCount = 0
 
     def connect(self):
@@ -46,9 +44,12 @@ class MasterController:
                             cursorclass=pymysql.cursors.DictCursor)
                 return con
             except json.JSONDecodeError as e:
-                print("Error while parsing config.json: {}".format(e))
+                self.errorCount += 1
+                print("ERROR[{}]: invalid config.json: {}".format(self.errorCount, e))
             except pymysql.Error as e:
-                print("Error while connecting to databse {}: {}".format(data['database'], e))
+                self.errorCount += 1
+                print("ERROR[{}]: failed to connect to db {}: {}".format(self.errorCount,
+                                                                         data['database'], e))
         return None
 
     def get_filename(self):
@@ -66,8 +67,9 @@ class MasterController:
                     if measurements[(n-1)- j]['temperature'] != 999:
                         self.sensors[i][j] = float(measurements[(n-1)- j]['temperature'])
                         validRecords += 1
-                    # else:
-                    #     self.errorCount += 1
+                    else:
+                        self.errorCount += 1
+                        print("ERROR[{}]: invalid temperature for sensor-{}".format(self.errorCount, i))
                 except IndexError:
                     # Not enough elements for 10 yet
                     break
@@ -77,6 +79,9 @@ class MasterController:
                 self.mean_temperature = np.nanmean(t)
                 self.max_temperature = np.nanmax(t)
                 self.min_temperature = np.nanmin(t)
+            else:
+                self.errorCount += 1
+                print("ERROR[{}]: no valid records for sensor-{}".format(self.errorCount, i))
 
             new_entry = self.update_records(measurements)
 
@@ -154,8 +159,6 @@ def main():
         print("Log file saved to: {}".format(master.get_filename()))
         print("Plotting temperature measurements")
         plot(master.sensor_db, master.numberOfSensors)
-    except Exception as e:
-        print("Encountered exception: {}!".format(str(e)))
 
     print("Exiting... Total error count: {}".format(master.errorCount))
 
