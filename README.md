@@ -16,7 +16,10 @@
 * MySQL ver 14.14 distrib 5.7.32
 
 ### Python packages
-* mysql-connector-python
+* numpy 1.19.2
+* matplotlib 3.3.2
+* json 2.0.9
+* pymysql 1.0.2
 
 ### Node packages
 These are the packages used by our project and specified by the `package.json` file in the Node project.
@@ -76,9 +79,10 @@ sudo /etc/init.d/mysql start
 mysql  Ver 14.14 Distrib 5.7.32, for Linux (x86_64) using  EditLine wrapper
 ```
 
-:information_source: ensure that the MySQL Connector Python package that is used by the master controller is installed before continuing:
+:information_source: ensure that the PyMySQL Python package that is used by the master controller is installed before continuing:
 ```
-pip install mysql-connector-python
+pip install --upgrade setuptools wheel
+pip install pymysql
 ```
 
 #### Setting up Sensor User
@@ -138,7 +142,7 @@ npm start <NUMBER OF SENSORS>
 ## Program Design
 
 ### NodeJS Sensors
-In a similar design to our first assignment, the sensor code was split between process creation and initialization and the sensor object. After `server.js` does some initial configuration steps like connecting to the database and preparing an SQL table for the sensors, ittakes the command line response for the number of sensors to initialize and fork those processes. 
+In a similar design to our first assignment, the sensor code was split between process creation and initialization and the sensor object. After `server.js` does some initial configuration steps like connecting to the database and preparing an SQL table for the sensors, ittakes the command line response for the number of sensors to initialize and fork those processes.
 
 `sensor.js` is the object-implementation of the sensor, making measurements once every 10 seconds and simulating different events like a temperature spike or the measurement being unavailable. Each process is maintains a unique connection to the database, although all sensors (and the server controller) share the same SQL user. This was chosen for the simplicity in setting up the SQL database, but could be a place of optimization if this assignment was built on.
 
