@@ -26,6 +26,6 @@ def plot(sensor_db, sensors):
                 markersize=3, label='sensor-{}'.format(sensor), linewidth=1.5)
     plt.xlabel('Runtime (seconds)')
     plt.ylabel('Temperature (Fahrenheit)')
-    plt.title('Temperature Measurements for {} Sensors'.format(sensors+1))
+    plt.title('Temperature Measurements for {} Sensors'.format(sensors))
     plt.legend()
     plt.show()
