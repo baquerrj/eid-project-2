@@ -142,6 +142,41 @@ In a similar design to our first assignment, the sensor code was split between p
 
 `sensor.js` is the object-implementation of the sensor, making measurements once every 10 seconds and simulating different events like a temperature spike or the measurement being unavailable. Each process is maintains a unique connection to the database, although all sensors (and the server controller) share the same SQL user. This was chosen for the simplicity in setting up the SQL database, but could be a place of optimization if this assignment was built on.
 
+As the sensors continue to take measurements, in addition to storing to the database messages are also returned to the parent process. This is primarily used for logging of the sensor data, but could be expanded upon for error handling of the running child processes. We chose not to log to a file and instead log these messages to the console log for ease of development.
+
+```javascript
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 6:41:49 AM',
+  temp: 43.95835505086154,
+  alarms: 1,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 6:41:49 AM',
+  temp: 999,
+  alarms: 0,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 6:41:49 AM',
+  temp: 34.00243238966721,
+  alarms: 1,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 6:41:49 AM',
+  temp: 46.73114138797115,
+  alarms: 0,
+  errors: 1
+}
+...
+
+```
+
 ### Updating Master Controller
 
 ### Python Plotting of Sensor Data
