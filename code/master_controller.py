@@ -11,7 +11,7 @@ import pymysql
 
 codeDirectory = Path(__file__).parent.absolute()
 rootDirectory = codeDirectory.parent
-resultsDirectory = rootDirectory / 'results'
+artifacts = rootDirectory / 'artifacts'
 
 sys.path.append(codeDirectory)
 
@@ -23,7 +23,7 @@ def fahrenheit_to_celsius(fahrenheit):
 class MasterController:
 
     def __init__(self, numberOfSensors=4):
-        self.filename = resultsDirectory / 'master.json'
+        self.filename = artifacts / 'master.json'
         self.numberOfSensors = numberOfSensors
         self.sensor_db = [{}]    # empty list of dictionaries
         self.sensors = np.empty(shape=(numberOfSensors, 10))
