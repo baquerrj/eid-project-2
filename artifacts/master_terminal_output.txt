@@ -1,0 +1,99 @@
+
+baquerrj@karachi:~/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/code
+python master_controller.py
+Checking database...
+No data yet...
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:47:18.196689. Max Temperature F:46.37139667900322. Min Temperature F:43.4485747014364. Mean Temperature F:45.34651619168716. Max Temperature C:7.9841092661129. Min Temperature C:6.360319278575777. Mean Temperature C:7.414731217603976. Alarm Count:0. Error Count:0.
+Sensor Number:1. Timestamp:2021-02-02 19:47:18.196977. Max Temperature F:36.904660162864886. Min Temperature F:34.36693846310822. Mean Temperature F:35.738635419613416. Max Temperature C:2.7248112015916033. Min Temperature C:1.3149658128378998. Mean Temperature C:2.077019677563009. Alarm Count:0. Error Count:0.
+Sensor Number:2. Timestamp:2021-02-02 19:47:18.197336. Max Temperature F:35.10885724992044. Min Temperature F:34.8248885287311. Mean Temperature F:34.92823698120017. Max Temperature C:1.7271429166224668. Min Temperature C:1.569382515961723. Mean Temperature C:1.6267983228889844. Alarm Count:0. Error Count:0.
+ERROR[1]: invalid temperature for sensor-3
+ERROR[2]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:47:18.197665. Max Temperature F:45.11395052957336. Min Temperature F:44.17593929211725. Mean Temperature F:44.644944910845304. Max Temperature C:7.285528071985199. Min Temperature C:6.7644107178429165. Mean Temperature C:7.0249693949140575. Alarm Count:0. Error Count:1.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:47:48.251474. Max Temperature F:46.37139667900322. Min Temperature F:43.4485747014364. Mean Temperature F:44.809586629059105. Max Temperature C:7.9841092661129. Min Temperature C:6.360319278575777. Mean Temperature C:7.116437016143948. Alarm Count:0. Error Count:0.
+Sensor Number:1. Timestamp:2021-02-02 19:47:48.252322. Max Temperature F:36.904660162864886. Min Temperature F:34.20299010846451. Mean Temperature F:35.60886373119093. Max Temperature C:2.7248112015916033. Min Temperature C:1.2238833935913955. Mean Temperature C:2.004924295106072. Alarm Count:0. Error Count:0.
+ERROR[3]: invalid temperature for sensor-2
+ERROR[4]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:47:48.252800. Max Temperature F:36.672153249614084. Min Temperature F:34.751418171606915. Mean Temperature F:35.31661869843148. Max Temperature C:2.5956406942300467. Min Temperature C:1.5285656508927303. Mean Temperature C:1.8425659435730464. Alarm Count:0. Error Count:1.
+ERROR[5]: invalid temperature for sensor-3
+ERROR[6]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:47:48.253211. Max Temperature F:46.66411395019431. Min Temperature F:43.36069407430529. Mean Temperature F:44.783368798671916. Max Temperature C:8.146729972330174. Min Temperature C:6.311496707947385. Mean Temperature C:7.1018715548177305. Alarm Count:0. Error Count:1.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:48:18.312580. Max Temperature F:46.37139667900322. Min Temperature F:43.29595487874986. Mean Temperature F:44.99243877402199. Max Temperature C:7.9841092661129. Min Temperature C:6.2755304881943665. Mean Temperature C:7.218021541123329. Alarm Count:0. Error Count:0.
+Sensor Number:1. Timestamp:2021-02-02 19:48:18.313128. Max Temperature F:36.904660162864886. Min Temperature F:33.10408597563395. Mean Temperature F:35.44516662881134. Max Temperature C:2.7248112015916033. Min Temperature C:0.6133810975744167. Mean Temperature C:1.9139814604507461. Alarm Count:0. Error Count:0.
+ERROR[7]: invalid temperature for sensor-2
+ERROR[8]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:48:18.313584. Max Temperature F:36.672153249614084. Min Temperature F:34.751418171606915. Mean Temperature F:35.24036460850698. Max Temperature C:2.5956406942300467. Min Temperature C:1.5285656508927303. Mean Temperature C:1.8002025602816554. Alarm Count:0. Error Count:2.
+ERROR[9]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:48:18.314066. Max Temperature F:46.678812830969875. Min Temperature F:43.36069407430529. Mean Temperature F:45.242940395362304. Max Temperature C:8.154896017205486. Min Temperature C:6.311496707947385. Mean Temperature C:7.357189108534612. Alarm Count:0. Error Count:1.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:48:48.347362. Max Temperature F:46.34343170089994. Min Temperature F:43.25901989332472. Mean Temperature F:44.27766438282223. Max Temperature C:7.968573167166634. Min Temperature C:6.255011051847067. Mean Temperature C:6.820924657123461. Alarm Count:0. Error Count:0.
+ERROR[10]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:48:48.347971. Max Temperature F:36.904660162864886. Min Temperature F:33.10408597563395. Mean Temperature F:35.53692870442473. Max Temperature C:2.7248112015916033. Min Temperature C:0.6133810975744167. Mean Temperature C:1.964960391347073. Alarm Count:0. Error Count:1.
+ERROR[11]: invalid temperature for sensor-2
+ERROR[12]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:48:48.348630. Max Temperature F:36.672153249614084. Min Temperature F:34.751418171606915. Mean Temperature F:35.53229534250848. Max Temperature C:2.5956406942300467. Min Temperature C:1.5285656508927303. Mean Temperature C:1.9623863013936018. Alarm Count:0. Error Count:2.
+ERROR[13]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:48:48.349322. Max Temperature F:46.678812830969875. Min Temperature F:37.386367725656775. Mean Temperature F:44.433956116746415. Max Temperature C:8.154896017205486. Min Temperature C:2.992426514253764. Mean Temperature C:6.907753398192453. Alarm Count:1. Error Count:1.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:49:18.380892. Max Temperature F:46.80895380965294. Min Temperature F:43.25901989332472. Mean Temperature F:44.86632823206476. Max Temperature C:8.2271965609183. Min Temperature C:6.255011051847067. Mean Temperature C:7.147960128924867. Alarm Count:0. Error Count:0.
+ERROR[14]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:49:18.381619. Max Temperature F:36.568611407265266. Min Temperature F:33.10408597563395. Mean Temperature F:35.048433944933954. Max Temperature C:2.538117448480703. Min Temperature C:0.6133810975744167. Mean Temperature C:1.6935744138521969. Alarm Count:0. Error Count:1.
+ERROR[15]: invalid temperature for sensor-2
+ERROR[16]: invalid temperature for sensor-2
+ERROR[17]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:49:18.382244. Max Temperature F:36.35244891388396. Min Temperature F:33.15562239840361. Mean Temperature F:35.35779864219438. Max Temperature C:2.4180271743799784. Min Temperature C:0.64201244355756. Mean Temperature C:1.86544369010799. Alarm Count:0. Error Count:3.
+ERROR[18]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:49:18.382849. Max Temperature F:46.678812830969875. Min Temperature F:37.386367725656775. Mean Temperature F:43.375632544375804. Max Temperature C:8.154896017205486. Min Temperature C:2.992426514253764. Mean Temperature C:6.319795857986558. Alarm Count:2. Error Count:2.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:49:48.416292. Max Temperature F:48.89126940387217. Min Temperature F:43.25901989332472. Mean Temperature F:45.57113132307237. Max Temperature C:9.384038557706763. Min Temperature C:6.255011051847067. Mean Temperature C:7.539517401706872. Alarm Count:0. Error Count:0.
+ERROR[19]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:49:48.417038. Max Temperature F:36.568611407265266. Min Temperature F:33.33378292259628. Mean Temperature F:34.934398397135816. Max Temperature C:2.538117448480703. Min Temperature C:0.7409905125534877. Mean Temperature C:1.6302213317421197. Alarm Count:0. Error Count:1.
+ERROR[20]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:49:48.417731. Max Temperature F:36.420537002976296. Min Temperature F:33.15562239840361. Mean Temperature F:35.586060414236194. Max Temperature C:2.455853890542387. Min Temperature C:0.64201244355756. Mean Temperature C:1.9922557856867742. Alarm Count:0. Error Count:3.
+ERROR[21]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:49:48.418500. Max Temperature F:46.678812830969875. Min Temperature F:37.386367725656775. Mean Temperature F:43.413733450356574. Max Temperature C:8.154896017205486. Min Temperature C:2.992426514253764. Mean Temperature C:6.340963027975874. Alarm Count:2. Error Count:2.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:50:18.449199. Max Temperature F:48.89126940387217. Min Temperature F:35.91490430226827. Mean Temperature F:44.72096935260072. Max Temperature C:9.384038557706763. Min Temperature C:2.1749468345934826. Mean Temperature C:7.067205195889288. Alarm Count:1. Error Count:0.
+ERROR[22]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:50:18.450485. Max Temperature F:36.568611407265266. Min Temperature F:31.729680100239072. Mean Temperature F:34.60119663555484. Max Temperature C:2.538117448480703. Min Temperature C:-0.1501777220894043. Mean Temperature C:1.4451092419749125. Alarm Count:0. Error Count:2.
+ERROR[23]: invalid temperature for sensor-2
+ERROR[24]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:50:18.451326. Max Temperature F:36.42178595197144. Min Temperature F:33.15562239840361. Mean Temperature F:35.27338148142118. Max Temperature C:2.4565477510952425. Min Temperature C:0.64201244355756. Mean Temperature C:1.8185452674562126. Alarm Count:0. Error Count:4.
+ERROR[25]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:50:18.452097. Max Temperature F:45.67107490014824. Min Temperature F:37.386367725656775. Mean Temperature F:43.220372690527526. Max Temperature C:7.5950416111934675. Min Temperature C:2.992426514253764. Mean Temperature C:6.233540383626403. Alarm Count:2. Error Count:2.
+Checking database...
+ERROR[26]: invalid temperature for sensor-0
+Sensor Number:0. Timestamp:2021-02-02 19:50:48.469441. Max Temperature F:48.89126940387217. Min Temperature F:35.91490430226827. Mean Temperature F:44.917612492864286. Max Temperature C:9.384038557706763. Min Temperature C:2.1749468345934826. Mean Temperature C:7.176451384924604. Alarm Count:1. Error Count:1.
+ERROR[27]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:50:48.470941. Max Temperature F:36.090438341124376. Min Temperature F:31.729680100239072. Mean Temperature F:34.39668414225813. Max Temperature C:2.2724657450690975. Min Temperature C:-0.1501777220894043. Mean Temperature C:1.3314911901434061. Alarm Count:0. Error Count:2.
+ERROR[28]: invalid temperature for sensor-2
+ERROR[29]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:50:48.472124. Max Temperature F:38.870030455987845. Min Temperature F:33.15562239840361. Mean Temperature F:35.56982233927427. Max Temperature C:3.816683586659914. Min Temperature C:0.64201244355756. Mean Temperature C:1.9832346329301487. Alarm Count:0. Error Count:5.
+Sensor Number:3. Timestamp:2021-02-02 19:50:48.473033. Max Temperature F:45.67107490014824. Min Temperature F:43.34380275204418. Mean Temperature F:44.49862186871742. Max Temperature C:7.5950416111934675. Min Temperature C:6.302112640024546. Mean Temperature C:6.943678815954123. Alarm Count:2. Error Count:2.
+Checking database...
+ERROR[30]: invalid temperature for sensor-0
+ERROR[31]: invalid temperature for sensor-0
+Sensor Number:0. Timestamp:2021-02-02 19:51:18.481645. Max Temperature F:46.97652775100785. Min Temperature F:35.91490430226827. Mean Temperature F:44.28905798535653. Max Temperature C:8.32029319500436. Min Temperature C:2.1749468345934826. Mean Temperature C:6.8272544363091825. Alarm Count:1. Error Count:2.
+ERROR[32]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:51:18.482614. Max Temperature F:41.72276992672206. Min Temperature F:31.729680100239072. Mean Temperature F:35.48196672997162. Max Temperature C:5.401538848178921. Min Temperature C:-0.1501777220894043. Mean Temperature C:1.934425961095343. Alarm Count:1. Error Count:2.
+ERROR[33]: invalid temperature for sensor-2
+ERROR[34]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:51:18.483494. Max Temperature F:38.870030455987845. Min Temperature F:33.3321815463158. Mean Temperature F:35.523971181181324. Max Temperature C:3.816683586659914. Min Temperature C:0.7401008590643343. Mean Temperature C:1.9577617673229577. Alarm Count:0. Error Count:5.
+Sensor Number:3. Timestamp:2021-02-02 19:51:18.484335. Max Temperature F:45.90045106888615. Min Temperature F:43.34380275204418. Mean Temperature F:44.302171450389466. Max Temperature C:7.722472816047861. Min Temperature C:6.302112640024546. Mean Temperature C:6.834539694660815. Alarm Count:2. Error Count:2.
+Checking database...
+ERROR[35]: invalid temperature for sensor-0
+ERROR[36]: invalid temperature for sensor-0
+Sensor Number:0. Timestamp:2021-02-02 19:51:48.506038. Max Temperature F:48.68098870579046. Min Temperature F:43.78626202706347. Mean Temperature F:45.52165964804251. Max Temperature C:9.267215947661368. Min Temperature C:6.547923348368595. Mean Temperature C:7.512033137801394. Alarm Count:1. Error Count:2.
+ERROR[37]: invalid temperature for sensor-1
+Sensor Number:1. Timestamp:2021-02-02 19:51:48.507160. Max Temperature F:41.72276992672206. Min Temperature F:33.3242222706863. Mean Temperature F:35.43772009128093. Max Temperature C:5.401538848178921. Min Temperature C:0.7356790392701661. Mean Temperature C:1.9098444951560722. Alarm Count:1. Error Count:2.
+ERROR[38]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:51:48.508140. Max Temperature F:38.870030455987845. Min Temperature F:33.369529858607976. Mean Temperature F:35.6458842075705. Max Temperature C:3.816683586659914. Min Temperature C:0.7608499214488754. Mean Temperature C:2.025491226428054. Alarm Count:0. Error Count:5.
+Sensor Number:3. Timestamp:2021-02-02 19:51:48.509098. Max Temperature F:46.58950150659818. Min Temperature F:43.34380275204418. Mean Temperature F:44.60029307546587. Max Temperature C:8.105278614776768. Min Temperature C:6.302112640024546. Mean Temperature C:7.000162819703261. Alarm Count:2. Error Count:2.
+^CLog file saved to: /home/baquerrj/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/artifacts/master.json
+Plotting temperature measurements
+Exiting... Total error count: 38
+(base)
+[Tue Feb 02 07:53:14]  [main]
+baquerrj@karachi:~/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/code

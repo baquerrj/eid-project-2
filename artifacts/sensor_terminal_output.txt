@@ -1,0 +1,891 @@
+baquerrj@karachi:~/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/code
+npm start 4
+
+> eid-project-2@1.0.0 start /home/baquerrj/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/code
+> node server.js "4"
+
+number of sensors 4
+Connected!
+Database created!
+Table deleted
+Table created
+Message from parent: { number: 0, temperature: 45 }
+Sensor-0 connected to database
+Message from parent: { number: 2, temperature: 35 }
+Message from parent: { number: 1, temperature: 35 }
+Message from parent: { number: 3, temperature: 45 }
+Sensor-2 connected to database
+Sensor-1 connected to database
+Sensor-3 connected to database
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:46:57 PM',
+  temp: 46.37139667900322,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:46:57 PM',
+  temp: 35.944307632867144,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:46:57 PM',
+  temp: 45.11395052957336,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:46:57 PM',
+  temp: 34.85096516494898,
+  alarms: 0,
+  errors: 0
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:47:07 PM',
+  temp: 46.21957719462184,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:47:07 PM',
+  temp: 44.17593929211725,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:47:07 PM',
+  temp: 34.36693846310822,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:47:07 PM',
+  temp: 34.8248885287311,
+  alarms: 0,
+  errors: 0
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:47:17 PM',
+  temp: 43.4485747014364,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:47:17 PM',
+  temp: 35.10885724992044,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:47:17 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 1
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:47:17 PM',
+  temp: 36.904660162864886,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:47:27 PM',
+  temp: 43.36069407430529,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:47:27 PM',
+  temp: 44.14097448123882,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:47:27 PM',
+  temp: 34.20299010846451,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:47:27 PM',
+  temp: 36.672153249614084,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:47:37 PM',
+  temp: 46.66411395019431,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:47:37 PM',
+  temp: 43.975223696999024,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:47:37 PM',
+  temp: 34.751418171606915,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:47:37 PM',
+  temp: 36.81353479590846,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:47:47 PM',
+  temp: 44.46372225934276,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:47:47 PM',
+  temp: 46.18767332880875,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:47:47 PM',
+  temp: 34.967510540729116,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:47:47 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:47:57 PM',
+  temp: 43.29595487874986,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:47:57 PM',
+  temp: 45.42861792969212,
+  alarms: 0,
+  errors: 1
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:47:57 PM',
+  temp: 33.10408597563395,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:47:57 PM',
+  temp: 35.06867415364924,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:48:07 PM',
+  temp: 43.5981493775621,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:48:07 PM',
+  temp: 35.74391278473819,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:48:07 PM',
+  temp: 45.40101799711541,
+  alarms: 0,
+  errors: 1
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:48:07 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:48:17 PM',
+  temp: 46.34343170089994,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:48:17 PM',
+  temp: 36.20186291189948,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:48:17 PM',
+  temp: 46.678812830969875,
+  alarms: 0,
+  errors: 1
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:48:17 PM',
+  temp: 35.63320707253584,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:48:27 PM',
+  temp: 43.824820352597285,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:48:27 PM',
+  temp: 35.11820557200521,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:48:27 PM',
+  temp: 44.596535774481644,
+  alarms: 0,
+  errors: 1
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:48:27 PM',
+  temp: 35.834817577779226,
+  alarms: 0,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:48:37 PM',
+  temp: 43.68086579473608,
+  alarms: 0,
+  errors: 1
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:48:37 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 1
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:48:37 PM',
+  temp: 36.35244891388396,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:48:37 PM',
+  temp: 43.25901989332472,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:48:47 PM',
+  temp: 37.386367725656775,
+  alarms: 1,
+  errors: 1
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:48:47 PM',
+  temp: 36.04110161456778,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:48:47 PM',
+  temp: 44.70282141660536,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:48:47 PM',
+  temp: 36.568611407265266,
+  alarms: 0,
+  errors: 1
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:48:57 PM',
+  temp: 38.718493222977585,
+  alarms: 2,
+  errors: 1
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:48:57 PM',
+  temp: 35.213159682833506,
+  alarms: 0,
+  errors: 1
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:48:57 PM',
+  temp: 35.27939035571286,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:48:57 PM',
+  temp: 45.67783124661916,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:49:07 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 3
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:49:07 PM',
+  temp: 34.316460766477924,
+  alarms: 0,
+  errors: 1
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:49:07 PM',
+  temp: 999,
+  alarms: 2,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:49:07 PM',
+  temp: 44.964626315827545,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:49:17 PM',
+  temp: 33.15562239840361,
+  alarms: 0,
+  errors: 3
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:49:17 PM',
+  temp: 43.72102611404975,
+  alarms: 2,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:49:17 PM',
+  temp: 46.80895380965294,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:49:17 PM',
+  temp: 33.506617023018705,
+  alarms: 0,
+  errors: 1
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:49:27 PM',
+  temp: 45.67107490014824,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:49:27 PM',
+  temp: 34.93971673776178,
+  alarms: 0,
+  errors: 3
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:49:27 PM',
+  temp: 33.33378292259628,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:49:27 PM',
+  temp: 46.60381326646444,
+  alarms: 0,
+  errors: 0
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:49:37 PM',
+  temp: 36.420537002976296,
+  alarms: 0,
+  errors: 3
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:49:37 PM',
+  temp: 45.398141695358994,
+  alarms: 2,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:49:37 PM',
+  temp: 33.429525689053946,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:49:37 PM',
+  temp: 48.89126940387217,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:49:47 PM',
+  temp: 44.605150650450675,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:49:47 PM',
+  temp: 35.85131355485656,
+  alarms: 0,
+  errors: 3
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:49:47 PM',
+  temp: 35.91184521146969,
+  alarms: 0,
+  errors: 1
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:49:47 PM',
+  temp: 44.63472582486016,
+  alarms: 0,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:49:57 PM',
+  temp: 44.68515604745354,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:49:57 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 4
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:49:57 PM',
+  temp: 44.57417974740528,
+  alarms: 0,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:49:57 PM',
+  temp: 31.729680100239072,
+  alarms: 0,
+  errors: 1
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:50:07 PM',
+  temp: 44.56785419093184,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:50:07 PM',
+  temp: 33.3321815463158,
+  alarms: 0,
+  errors: 4
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:50:07 PM',
+  temp: 35.91490430226827,
+  alarms: 1,
+  errors: 0
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:50:07 PM',
+  temp: 36.090438341124376,
+  alarms: 0,
+  errors: 1
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:50:17 PM',
+  temp: 43.769596563511826,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:50:17 PM',
+  temp: 36.42178595197144,
+  alarms: 0,
+  errors: 4
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:50:17 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:50:17 PM',
+  temp: 44.43656819243185,
+  alarms: 1,
+  errors: 0
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:50:27 PM',
+  temp: 45.31046189638899,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:50:27 PM',
+  temp: 999,
+  alarms: 0,
+  errors: 5
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:50:27 PM',
+  temp: 999,
+  alarms: 1,
+  errors: 1
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:50:27 PM',
+  temp: 35.41125878537822,
+  alarms: 0,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:50:37 PM',
+  temp: 43.34380275204418,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:50:37 PM',
+  temp: 36.82760226894572,
+  alarms: 0,
+  errors: 5
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:50:37 PM',
+  temp: 45.76100288327461,
+  alarms: 1,
+  errors: 1
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:50:37 PM',
+  temp: 35.2191878925246,
+  alarms: 0,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:50:47 PM',
+  temp: 43.9139538768361,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:50:47 PM',
+  temp: 38.870030455987845,
+  alarms: 0,
+  errors: 5
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:50:47 PM',
+  temp: 33.42266024570666,
+  alarms: 0,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:50:47 PM',
+  temp: 46.97652775100785,
+  alarms: 1,
+  errors: 1
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:50:57 PM',
+  temp: 43.39254833775063,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:50:57 PM',
+  temp: 34.515306377293626,
+  alarms: 0,
+  errors: 5
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:50:58 PM',
+  temp: 999,
+  alarms: 1,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:50:58 PM',
+  temp: 34.32914614949816,
+  alarms: 0,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:51:08 PM',
+  temp: 45.90045106888615,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:51:08 PM',
+  temp: 36.17252832231073,
+  alarms: 0,
+  errors: 5
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:51:08 PM',
+  temp: 45.681235046119276,
+  alarms: 1,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:51:08 PM',
+  temp: 41.72276992672206,
+  alarms: 1,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:51:18 PM',
+  temp: 43.53273911964068,
+  alarms: 2,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:51:18 PM',
+  temp: 33.369529858607976,
+  alarms: 0,
+  errors: 5
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:51:18 PM',
+  temp: 35.070835435583604,
+  alarms: 1,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:51:18 PM',
+  temp: 45.76307661138742,
+  alarms: 1,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:51:28 PM',
+  temp: 46.021783235085046,
+  alarms: 2,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:51:28 PM',
+  temp: 36.04330661170402,
+  alarms: 1,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:51:28 PM',
+  temp: 36.695051534435486,
+  alarms: 0,
+  errors: 5
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:51:28 PM',
+  temp: 43.78626202706347,
+  alarms: 1,
+  errors: 2
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:51:38 PM',
+  temp: 46.58950150659818,
+  alarms: 2,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:51:38 PM',
+  temp: 33.92196838353601,
+  alarms: 1,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:51:38 PM',
+  temp: 48.68098870579046,
+  alarms: 1,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:51:38 PM',
+  temp: 33.7141423746348,
+  alarms: 0,
+  errors: 5
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:51:48 PM',
+  temp: 44.228092397916996,
+  alarms: 2,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:51:48 PM',
+  temp: 33.3242222706863,
+  alarms: 1,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:51:48 PM',
+  temp: 44.982575768539526,
+  alarms: 1,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:51:48 PM',
+  temp: 34.93314819375554,
+  alarms: 0,
+  errors: 5
+}
+Message from child 3 {
+  id_num: 3,
+  date: '2/2/2021, 7:51:58 PM',
+  temp: 45.679170845358804,
+  alarms: 2,
+  errors: 2
+}
+Message from child 1 {
+  id_num: 1,
+  date: '2/2/2021, 7:51:58 PM',
+  temp: 36.44439374827805,
+  alarms: 1,
+  errors: 2
+}
+Message from child 0 {
+  id_num: 0,
+  date: '2/2/2021, 7:51:58 PM',
+  temp: 44.0019146514461,
+  alarms: 1,
+  errors: 2
+}
+Message from child 2 {
+  id_num: 2,
+  date: '2/2/2021, 7:51:58 PM',
+  temp: 34.667582010039595,
+  alarms: 0,
+  errors: 5
+}
+^C
+(base)
+[Tue Feb 02 07:52:04]  [main]
+baquerrj@karachi:~/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/code
