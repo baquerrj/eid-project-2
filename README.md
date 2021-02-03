@@ -86,7 +86,6 @@ pip install pymysql
 ```
 
 #### Setting up Sensor User
-:information_source: Replace `sensor` below with username.
 ```
 $ sudo mysql
 mysql> CREATE USER 'sensor'@'localhost' IDENTIFIED BY 'balderdash';
@@ -95,11 +94,11 @@ mysql> FLUSH PRIVILEGES;
 mysql> quit;
 ```
 
-This user and password are maintained in the `config.json` file in the project and are simply representational.
+:information_source: The user and password are maintained in configuration file: [`config.json`](code/config.json). The values are simply representational and can be modified.
 
 
 #### Configuring Database
-The database is configured by the `server.js` when the assignment begins. This is done by a series of SQL commands issues upon connecting to the database.
+The database is configured by `server.js` when the assignment begins. This is done by a series of SQL commands issues upon connecting to the database.
 
 ```javascript
 const create_db = "CREATE DATABASE IF NOT EXISTS sensor_db";
@@ -182,13 +181,105 @@ Message from child 3 {
 ```
 
 ### Updating Master Controller
+The Master Controller underwent some modifications required to interface with the SQL database containing the simulated sensor data.
+We used the `PyMySQL` python package to interface with MySQL, and used [5] as a reference for how to use the API.
+
+
+Instead of opening and reading in sensor data from text files every 30 seconds, the master controller connects to the SQL database, fetching all measurements currently existing in the database, and storing the fetched data in an instance variable of the master controller object.After that, the master performs similar computations on the sensor data as it did in the previous assignment. The master filters the instance variable containing the data from the SQL database to pick out the the measurements for each of the four simulated sensors. Following that, average, maximum and minimum temperatures in Fahrenheit and Celsius are calculated. Like before, the master determines the average, maximum, and mimimum temperatures based on the last ten measurements, or fewer if ten are not available, for each sensor. This information, along with the alarm and error counts for each sensor are printed in json format to a log file ([master.json](artifacts/master.json)) as well as simple text to the terminal.
+
+The text printed to the terminal by the master controller program was saved to [master_terminal_output.txt](artifacts/master_terminal_output.txt) in the artifacts directory. The beginning of that text is reproduced below:
+```
+baquerrj@karachi:~/boulder/Embedded-Interface-Design-ECEN5783/eid-project-2/code
+python master_controller.py
+Checking database...
+No data yet...
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:47:18.196689. Max Temperature F:46.37139667900322. Min Temperature F:43.4485747014364. Mean Temperature F:45.34651619168716. Max Temperature C:7.9841092661129. Min Temperature C:6.360319278575777. Mean Temperature C:7.414731217603976. Alarm Count:0. Error Count:0.
+Sensor Number:1. Timestamp:2021-02-02 19:47:18.196977. Max Temperature F:36.904660162864886. Min Temperature F:34.36693846310822. Mean Temperature F:35.738635419613416. Max Temperature C:2.7248112015916033. Min Temperature C:1.3149658128378998. Mean Temperature C:2.077019677563009. Alarm Count:0. Error Count:0.
+Sensor Number:2. Timestamp:2021-02-02 19:47:18.197336. Max Temperature F:35.10885724992044. Min Temperature F:34.8248885287311. Mean Temperature F:34.92823698120017. Max Temperature C:1.7271429166224668. Min Temperature C:1.569382515961723. Mean Temperature C:1.6267983228889844. Alarm Count:0. Error Count:0.
+ERROR[1]: invalid temperature for sensor-3
+ERROR[2]: invalid temperature for sensor-3
+Sensor Number:3. Timestamp:2021-02-02 19:47:18.197665. Max Temperature F:45.11395052957336. Min Temperature F:44.17593929211725. Mean Temperature F:44.644944910845304. Max Temperature C:7.285528071985199. Min Temperature C:6.7644107178429165. Mean Temperature C:7.0249693949140575. Alarm Count:0. Error Count:1.
+Checking database...
+Sensor Number:0. Timestamp:2021-02-02 19:47:48.251474. Max Temperature F:46.37139667900322. Min Temperature F:43.4485747014364. Mean Temperature F:44.809586629059105. Max Temperature C:7.9841092661129. Min Temperature C:6.360319278575777. Mean Temperature C:7.116437016143948. Alarm Count:0. Error Count:0.
+Sensor Number:1. Timestamp:2021-02-02 19:47:48.252322. Max Temperature F:36.904660162864886. Min Temperature F:34.20299010846451. Mean Temperature F:35.60886373119093. Max Temperature C:2.7248112015916033. Min Temperature C:1.2238833935913955. Mean Temperature C:2.004924295106072. Alarm Count:0. Error Count:0.
+ERROR[3]: invalid temperature for sensor-2
+ERROR[4]: invalid temperature for sensor-2
+Sensor Number:2. Timestamp:2021-02-02 19:47:48.252800. Max Temperature F:36.672153249614084. Min Temperature F:34.751418171606915. Mean Temperature F:35.31661869843148. Max Temperature C:2.5956406942300467. Min Temperature C:1.5285656508927303. Mean Temperature C:1.8425659435730464. Alarm Count:0. Error Count:1.
+ERROR[5]: invalid temperature for sensor-3
+ERROR[6]: invalid temperature for sensor-3
+```
+
+The first couple of entries to the master.json file are also shown below:
+```json
+{
+  "measurements": [
+    {
+      "Sensor Number": 0,
+      "Timestamp": "2021-02-02 19:47:18.196689",
+      "Max Temperature F": 46.37139667900322,
+      "Min Temperature F": 43.4485747014364,
+      "Mean Temperature F": 45.34651619168716,
+      "Max Temperature C": 7.9841092661129,
+      "Min Temperature C": 6.360319278575777,
+      "Mean Temperature C": 7.414731217603976,
+      "Alarm Count": 0,
+      "Error Count": 0
+    },
+    {
+      "Sensor Number": 1,
+      "Timestamp": "2021-02-02 19:47:18.196977",
+      "Max Temperature F": 36.904660162864886,
+      "Min Temperature F": 34.36693846310822,
+      "Mean Temperature F": 35.738635419613416,
+      "Max Temperature C": 2.7248112015916033,
+      "Min Temperature C": 1.3149658128378998,
+      "Mean Temperature C": 2.077019677563009,
+      "Alarm Count": 0,
+      "Error Count": 0
+    },
+    {
+      "Sensor Number": 2,
+      "Timestamp": "2021-02-02 19:47:18.197336",
+      "Max Temperature F": 35.10885724992044,
+      "Min Temperature F": 34.8248885287311,
+      "Mean Temperature F": 34.92823698120017,
+      "Max Temperature C": 1.7271429166224668,
+      "Min Temperature C": 1.569382515961723,
+      "Mean Temperature C": 1.6267983228889844,
+      "Alarm Count": 0,
+      "Error Count": 0
+    },
+    {
+      "Sensor Number": 3,
+      "Timestamp": "2021-02-02 19:47:18.197665",
+      "Max Temperature F": 45.11395052957336,
+      "Min Temperature F": 44.17593929211725,
+      "Mean Temperature F": 44.644944910845304,
+      "Max Temperature C": 7.285528071985199,
+      "Min Temperature C": 6.7644107178429165,
+      "Mean Temperature C": 7.0249693949140575,
+      "Alarm Count": 0,
+      "Error Count": 1
+    },
+```
+
 
 ### Python Plotting of Sensor Data
+To quit running the Master Controller, the user can use Ctrl-C. Before exiting, the master displays a plot of the temperature readings of each sensor before exiting. The program plots temperature in Fahrenheit versus time, where `0` seconds corresponds to the start of the program.
 
-![Sensor Plot](artifacts/plot_example.png)
+![Sensor Plot](artifacts/temperatures_plot.png)
 
 ## Resources Referenced
 * https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/
 * https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
 * https://www.sitepoint.com/using-node-mysql-javascript-client/
 * https://stackoverflow.com/questions/22348705/best-way-to-store-db-config-in-node-js-express-app
+* https://zetcode.com/python/pymysql/
+
+
+[1]: <https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/> (ref1)
+[2]: <https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql> (ref2)
+[3]: <https://www.sitepoint.com/using-node-mysql-javascript-client/> (ref3)
+[4]: <https://stackoverflow.com/questions/22348705/best-way-to-store-db-config-in-node-js-express-app> (ref4)
+[5]: <https://zetcode.com/python/pymysql/> (ref5)
