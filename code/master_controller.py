@@ -1,19 +1,17 @@
 import sys
-import datetime
-import os
-
 import json
-from time import sleep
+import pymysql
 import numpy as np
 
+from datetime import datetime
+from time import sleep
 from pathlib import Path
-import pymysql
 
 codeDirectory = Path(__file__).parent.absolute()
 rootDirectory = codeDirectory.parent
 artifacts = rootDirectory / 'artifacts'
 
-sys.path.append(codeDirectory)
+# sys.path.append(codeDirectory)
 
 from plotter import plot
 
@@ -24,6 +22,9 @@ class MasterController:
 
     def __init__(self, numberOfSensors=4):
         self.filename = artifacts / 'master.json'
+        if True == self.filename.exists():
+            self.filename.unlink()
+
         self.numberOfSensors = numberOfSensors
         self.sensor_db = [{}]    # empty list of dictionaries
         self.sensors = np.empty(shape=(numberOfSensors, 10))
@@ -96,7 +97,7 @@ class MasterController:
         new_entry = {'measurements': []}
         new_entry['measurements'].append({
             'Sensor Number': measurements[-1]['sensorId'],
-            'Timestamp' : str(datetime.datetime.now()),
+            'Timestamp' : str(datetime.now()),
             'Max Temperature F'  : self.max_temperature,
             'Min Temperature F'  : self.min_temperature,
             'Mean Temperature F' : self.mean_temperature,
@@ -107,7 +108,7 @@ class MasterController:
             'Error Count' : measurements[-1]['error_count']
         })
 
-        if os.path.exists(self.filename):
+        if True == self.filename.exists():
             try:
                 with open(self.filename, 'r') as json_file:
                     old_data = json.load(json_file)
