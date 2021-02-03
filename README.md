@@ -135,8 +135,19 @@ const create_db = "CREATE DATABASE IF NOT EXISTS sensor_db";
 To start the sensor simulation server, execute:
 
 ```
+cd code
 npm start <NUMBER OF SENSORS>
 ```
+
+### Running Master Controller
+To start the master controller monitoring the simulated sensors, execute:
+
+```
+cd code
+python master_controller.py
+```
+
+:information_source: The controller program does not accept any command-line arguments. The program assumes that **four** sensors are being actively simulated.
 
 ## Program Design
 
